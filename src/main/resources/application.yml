@@ -1,2 +1,8 @@
 server:
   port: ${PORT:8080}
+
+vtb-api:
+  key: ${VTB_API_KEY}
+  host: https://gw.hackathon.vtb.ru/vtb/hackathon
+  endpoint:
+    car-recognize: car-recognize
