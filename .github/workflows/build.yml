@@ -20,5 +20,3 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: vtb-automarket
           heroku_email: L11cov@yandex.ru
-        env:
-          VTB_API_TOKEN: ${{secrets.VTB_API_TOKEN}}
