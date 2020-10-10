@@ -22,16 +22,19 @@ public class CarInfo {
     private final long minPrice;
     @JsonProperty("bodies")
     private final List<String> bodies;
+    @JsonProperty("country")
+    private final String country;
 
 
     public CarInfo(String brand, String logoUrl, String model, List<String> photos, long minPrice,
-            List<String> bodies) {
+            List<String> bodies, String country) {
         this.brand = brand;
         this.logoUrl = logoUrl;
         this.model = model;
         this.photos = photos;
         this.minPrice = minPrice;
         this.bodies = bodies;
+        this.country = country;
     }
 
 
