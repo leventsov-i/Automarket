@@ -36,7 +36,7 @@ public class RecognizeCarService {
                 max.isEmpty() ? null : max.get().getKey(),
                 (long) 0
         );
-        log.info("Answer: {}. Base 64: {}", recognizeResponseDto, request.getPictureCarBase64());
+        log.info("Answer: {}. Probability: {}", recognizeResponseDto, responseFromVtbApi);
         return recognizeResponseDto;
     }
 }
