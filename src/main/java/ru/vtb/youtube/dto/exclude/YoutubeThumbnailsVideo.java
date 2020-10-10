@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 public class YoutubeThumbnailsVideo {
-    @JsonProperty("default")
-    private YoutubeThumbnailsDefault thumbnailsDefault;
+    @JsonProperty("medium")
+    private YoutubeThumbnailsValue thumbnailsDefault;
 }
