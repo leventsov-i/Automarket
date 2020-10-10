@@ -75,7 +75,8 @@ public class MarketplaceService {
                         model.title,
                         bodyPhotoLinks,
                         model.minPrice,
-                        bodies);
+                        bodies,
+                        brand.country.title);
 
                 carInfoByAlias.put(model.alias, carInfo);
             }
