@@ -1,5 +1,6 @@
 package ru.vtb.recognize.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.vtb.recognize.dto.RecognizeCarRequestVtbApiDto;
@@ -12,6 +13,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class RecognizeCarService {
     private final RecognizeCarRequestVtbApiExecutor requestVtbApiExecutor;
 
@@ -28,11 +30,13 @@ public class RecognizeCarService {
                 .filter(stringFloatEntry -> stringFloatEntry.getValue() > 0.4)
                 .max(Map.Entry.comparingByValue());
 
-        return new RecognizeResponseDto(
+
+        RecognizeResponseDto recognizeResponseDto = new RecognizeResponseDto(
                 max.isPresent(),
                 max.isEmpty() ? null : max.get().getKey(),
                 (long) 0
         );
-
+        log.info("Answer: {}. Base 64: {}", recognizeResponseDto, request.getPictureCarBase64());
+        return recognizeResponseDto;
     }
 }
