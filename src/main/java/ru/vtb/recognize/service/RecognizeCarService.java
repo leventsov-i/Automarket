@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.vtb.marketplace.MarketplaceService;
 import ru.vtb.marketplace.pojo.CarInfo;
+import ru.vtb.marketplace.pojo.CarInfoResponse;
 import ru.vtb.recognize.dto.RecognizeCarRequestVtbApiDto;
 import ru.vtb.recognize.dto.RecognizeCarResponseVtbApiDto;
 import ru.vtb.recognize.dto.RecognizeRequestDto;
@@ -35,10 +36,11 @@ public class RecognizeCarService {
 
 
         String carName = max.isEmpty() ? null : max.get().getKey();
+        Optional<CarInfo> carInfo = marketplaceService.getCarInfo(carName);
         RecognizeResponseDto recognizeResponseDto = new RecognizeResponseDto(
                 max.isPresent(),
                 carName,
-                marketplaceService.getCarInfo(carName).map(CarInfo::getMinPrice).orElse(0L)
+                new CarInfoResponse(carInfo.isPresent(), carInfo)
         );
         log.info("Answer: {}. Probability: {}", recognizeResponseDto, responseFromVtbApi);
         return recognizeResponseDto;

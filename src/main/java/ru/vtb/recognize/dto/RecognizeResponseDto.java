@@ -3,6 +3,7 @@ package ru.vtb.recognize.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import ru.vtb.marketplace.pojo.CarInfoResponse;
 
 @Data
 @AllArgsConstructor
@@ -10,5 +11,5 @@ import lombok.Data;
 public class RecognizeResponseDto {
     private boolean found;
     private String carName;
-    private Long price;
+    private CarInfoResponse carInfo;
 }
