@@ -1,4 +1,4 @@
-package ru.vtb.pojo;
+package ru.vtb.marketplace.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

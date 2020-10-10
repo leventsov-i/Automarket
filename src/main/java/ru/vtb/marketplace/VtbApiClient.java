@@ -1,4 +1,4 @@
-package ru.vtb;
+package ru.vtb.marketplace;
 
 import java.io.IOException;
 import java.net.URI;
@@ -8,7 +8,9 @@ import java.net.http.HttpResponse;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ru.vtb.pojo.Marketplace;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import ru.vtb.marketplace.pojo.Marketplace;
 
 /**
  * @author denis-panin
@@ -21,7 +23,7 @@ public class VtbApiClient {
     private final HttpClient client;
     private final String token;
 
-    public VtbApiClient(String token) {
+    public VtbApiClient(@Value("@{vtb-api.key}") String token) {
         this.token = token;
         this.client = HttpClient.newHttpClient();
     }
