@@ -44,6 +44,11 @@ public class MarketplaceService {
     }
 
     public Optional<CarInfo> getCarInfo(String carName) {
+       if (carName == null) {
+           log.warn("Car name is null");
+           return Optional.empty();
+       }
+
         String alias = MarketplaceUtils.NAME_TO_ALIAS.getOrDefault(carName, "");
         return Optional.ofNullable(carInfoByAlias.get(alias));
     }

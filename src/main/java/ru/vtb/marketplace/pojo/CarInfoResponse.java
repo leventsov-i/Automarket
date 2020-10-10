@@ -1,11 +1,9 @@
 package ru.vtb.marketplace.pojo;
 
+import java.util.List;
 import java.util.Optional;
 
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
 /**
  * @author denis-panin
@@ -13,11 +11,15 @@ import com.fasterxml.jackson.annotation.JsonUnwrapped;
 public class CarInfoResponse {
     @JsonProperty("found")
     private final boolean found;
-    @JsonUnwrapped
+    @JsonProperty("carInfo")
     private final Optional<CarInfo> carInfo;
+    @JsonProperty("dealers")
+    private final List<Dealer> dealers;
 
-    public CarInfoResponse(boolean found, Optional<CarInfo> carInfo) {
+    public CarInfoResponse(boolean found, Optional<CarInfo> carInfo,
+            List<Dealer> dealers) {
         this.found = found;
         this.carInfo = carInfo;
+        this.dealers = dealers;
     }
 }
