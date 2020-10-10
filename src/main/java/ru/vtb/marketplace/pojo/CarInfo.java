@@ -3,10 +3,12 @@ package ru.vtb.marketplace.pojo;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 /**
  * @author denis-panin
  */
+@Data
 public class CarInfo {
     @JsonProperty("brand")
     private final String brand;
