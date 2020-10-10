@@ -1,7 +1,6 @@
 package ru.vtb.marketplace;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,7 +40,7 @@ public class MarketplaceService {
     public void init() {
         updateCarInfo();
         Executors.newSingleThreadScheduledExecutor()
-                .scheduleWithFixedDelay(this::updateCarInfo, 0, 10, TimeUnit.SECONDS);
+                .scheduleWithFixedDelay(this::updateCarInfo, 0, 5, TimeUnit.MINUTES);
     }
 
     public Optional<CarInfo> getCarInfo(String carName) {
