@@ -1,6 +1,7 @@
 package ru.vtb.marketplace.pojo;
 
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -13,7 +14,7 @@ public class CarModel {
     @JsonProperty("alias")
     public String alias;
     @JsonProperty("bodies")
-    public List<CarBody> bodies = null;
+    public List<CarBody> bodies = List.of();
     @JsonProperty("brand")
     public CarBrand brand;
     @JsonProperty("carId")
@@ -28,8 +29,8 @@ public class CarModel {
     public int id;
     @JsonProperty("metallicPay")
     public int metallicPay;
-    @JsonProperty("minprice")
-    public int minprice;
+    @JsonProperty("minPrice")
+    public long minPrice;
     @JsonProperty("model")
     public CarModelDetails model;
     @JsonProperty("ownTitle")
@@ -40,8 +41,8 @@ public class CarModel {
     public String photo;
     @JsonProperty("prefix")
     public String prefix;
-//    @JsonProperty("renderPhotos")
-//    public RenderPhotos renderPhotos;
+    @JsonProperty("renderPhotos")
+    public Map<String, Map<String, BodyPhoto>> renderPhotos;
 //    @JsonProperty("sizesPhotos")
 //    public SizesPhotos sizesPhotos;
     @JsonProperty("specmetallicPay")

@@ -10,11 +10,13 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import ru.vtb.marketplace.pojo.Marketplace;
 
 /**
  * @author denis-panin
  */
+@Component
 public class VtbApiClient {
     private static final URI API_URL = URI.create("https://gw.hackathon.vtb.ru/vtb/hackathon/");
     private static final ObjectMapper mapper = new ObjectMapper()
@@ -23,24 +25,29 @@ public class VtbApiClient {
     private final HttpClient client;
     private final String token;
 
-    public VtbApiClient(@Value("@{vtb-api.key}") String token) {
+    @Autowired
+    public VtbApiClient(@Value("${vtb-api.key}") String token) {
         this.token = token;
         this.client = HttpClient.newHttpClient();
     }
 
-    public Marketplace getMarketplace() throws IOException, InterruptedException {
-        URI url = API_URL.resolve("marketplace");
-        HttpRequest request = HttpRequest.newBuilder(url)
-                .header("Accept", "application/json")
-                .header("X-IBM-Client-Id", token)
-                .build();
+    public Marketplace getMarketplace() {
+        try {
+            URI url = API_URL.resolve("marketplace");
+            HttpRequest request = HttpRequest.newBuilder(url)
+                    .header("Accept", "application/json")
+                    .header("X-IBM-Client-Id", token)
+                    .build();
 
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        if (response.statusCode() != 200) {
-            throw new RuntimeException("Error: " + response.body());
+            if (response.statusCode() != 200) {
+                throw new RuntimeException("Error: " + response.body());
+            }
+
+            return mapper.readValue(response.body(), Marketplace.class);
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
         }
-
-        return mapper.readValue(response.body(), Marketplace.class);
     }
 }
