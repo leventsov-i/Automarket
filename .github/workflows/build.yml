@@ -17,7 +17,6 @@ jobs:
       - name: Deploy project
         uses: akhileshns/heroku-deploy@v3.4.6
         with:
-          java-version: 13
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: vtb-automarket
           heroku_email: L11cov@yandex.ru
