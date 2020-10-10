@@ -46,7 +46,8 @@ public class RecognizeCarService {
         RecognizeResponseDto recognizeResponseDto = new RecognizeResponseDto(
                 max.isPresent(),
                 carName,
-                new CarInfoResponse(carInfo.isPresent(), carInfo, dealers)
+                carInfo,
+                dealers
         );
         log.info("Answer: {}. Probability: {}", recognizeResponseDto, responseFromVtbApi);
         return recognizeResponseDto;
