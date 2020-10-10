@@ -6,3 +6,9 @@ vtb-api:
   host: https://gw.hackathon.vtb.ru/vtb/hackathon
   endpoint:
     car-recognize: car-recognize
+
+youtube-api:
+  key: ${YOUTUBE_API_KEY}
+  host: https://www.googleapis.com/youtube/v3
+  endpoint:
+    search: search
