@@ -7,6 +7,7 @@ import lombok.Data;
 import ru.vtb.marketplace.pojo.CarInfo;
 import ru.vtb.marketplace.pojo.CarInfoResponse;
 import ru.vtb.marketplace.pojo.Dealer;
+import ru.vtb.youtube.dto.include.YoutubeSearchVideoResponseDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +18,7 @@ import java.util.Optional;
 public class RecognizeResponseDto {
     private boolean found;
     private String carName;
-    private final Optional<CarInfo> carInfo;
-    private final List<Dealer> dealers;
+    private Optional<CarInfo> carInfo;
+    private List<Dealer> dealers;
+    private List<YoutubeSearchVideoResponseDto> youtubeVideos;
 }
