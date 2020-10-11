@@ -13,9 +13,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import ru.vtb.marketplace.pojo.Marketplace;
 
-/**
- * @author denis-panin
- */
 @Component
 public class VtbApiClient {
     private static final URI API_URL = URI.create("https://gw.hackathon.vtb.ru/vtb/hackathon/");

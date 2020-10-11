@@ -12,9 +12,6 @@ import ru.vtb.marketplace.pojo.CarInfo;
 import ru.vtb.marketplace.pojo.CarInfoResponse;
 import ru.vtb.marketplace.pojo.Dealer;
 
-/**
- * @author denis-panin
- */
 @RestController
 @RequestMapping("/api/cars")
 public class CarInfoController {

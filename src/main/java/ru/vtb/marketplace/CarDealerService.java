@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.vtb.marketplace.pojo.Dealer;
 
-/**
- * @author denis-panin
- */
 @Service
 public class CarDealerService {
     private static final List<Dealer> DEALERS = List.of(

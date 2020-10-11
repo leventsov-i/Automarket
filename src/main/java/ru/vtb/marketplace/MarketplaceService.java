@@ -21,9 +21,6 @@ import ru.vtb.marketplace.pojo.CarInfo;
 import ru.vtb.marketplace.pojo.CarModel;
 import ru.vtb.marketplace.pojo.Marketplace;
 
-/**
- * @author denis-panin
- */
 @Service
 @Slf4j
 public class MarketplaceService {

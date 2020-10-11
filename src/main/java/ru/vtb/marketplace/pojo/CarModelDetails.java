@@ -2,9 +2,6 @@ package ru.vtb.marketplace.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * @author denis-panin
- */
 public class CarModelDetails {
     @JsonProperty("absentee")
     public boolean absentee;

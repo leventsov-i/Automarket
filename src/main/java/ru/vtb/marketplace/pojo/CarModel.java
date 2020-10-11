@@ -5,9 +5,6 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * @author denis-panin
- */
 public class CarModel {
     @JsonProperty("absentee")
     public boolean absentee;

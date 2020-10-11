@@ -5,9 +5,6 @@ import java.util.Optional;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * @author denis-panin
- */
 public class CarInfoResponse {
     @JsonProperty("found")
     private final boolean found;

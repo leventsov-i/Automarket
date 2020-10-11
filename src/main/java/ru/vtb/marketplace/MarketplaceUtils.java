@@ -10,9 +10,6 @@ import java.util.stream.IntStream;
 
 import ru.vtb.marketplace.pojo.CarBody;
 
-/**
- * @author denis-panin
- */
 public class MarketplaceUtils {
     private MarketplaceUtils() {
     }

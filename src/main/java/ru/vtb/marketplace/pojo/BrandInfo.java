@@ -4,9 +4,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * @author denis-panin
- */
 public class BrandInfo {
     @JsonProperty("absentee")
     public boolean absentee;
